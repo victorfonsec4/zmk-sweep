@@ -37,4 +37,3 @@
 #define IT_EACU LS(LBKT)         // é
 #define IT_UGRV NON_US_HASH      // ù
 #define IT_OGRV SEMI             // ò
-
