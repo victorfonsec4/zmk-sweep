@@ -34,6 +34,40 @@
         };
     };
 
+    macros {
+      ZMK_MACRO(spacemacs_1,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&kp LC(G) &kp SPACE &kp N1>;
+                )
+      ZMK_MACRO(spacemacs_2,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&kp LC(G) &kp SPACE &kp N2>;
+                )
+      ZMK_MACRO(spacemacs_3,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&kp LC(G) &kp SPACE &kp N3>;
+                )
+      ZMK_MACRO(spacemacs_4,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&kp LC(G) &kp SPACE &kp N4>;
+                )
+      ZMK_MACRO(spacemacs_5,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&kp LC(G) &kp SPACE &kp N5>;
+                )
+      ZMK_MACRO(spacemacs_tab,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&kp LC(G) &kp SPACE &kp TAB>;
+                )
+
+    };
+
     keymap {
             compatible = "zmk,keymap";
 
@@ -67,13 +101,13 @@
     >;
     };
 
-        // Function keys with modifiers
-          fnc_layer {
+        // spacemacs layer
+          spacemacs_layer {
     bindings = <
-    &kp F1 &kp F2 &kp F3 &kp F4 &kp F5                  &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
-    &sk LALT &sk LGUI &sk LSHIFT &sk LCTRL &kp RALT     &kp F11 &kp F12  &kp PRINTSCREEN &trans &trans
-    &bt BT_CLR &none &none &none &bt BT_SEL 0           &bt BT_SEL 1 &none &none &none &bootloader
-                             &none &none         &none &none
+    &trans &trans &spacemacs_tab &trans &trans                             &trans &trans &trans &trans &trans
+    &spacemacs_5  &spacemacs_4 &spacemacs_3 &spacemacs_2 &spacemacs_1       &trans &trans &trans &trans &trans
+    &trans &trans &trans &trans &trans                                     &trans &trans &trans &trans &trans
+                             &trans &trans         &trans &to 0
     >;
     };
 
