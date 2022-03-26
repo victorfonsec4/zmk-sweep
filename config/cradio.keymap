@@ -65,6 +65,28 @@
                 tap-ms = <40>;
                 bindings = <&kp LC(G) &kp SPACE &kp TAB>;
                 )
+      ZMK_MACRO(alt_tab,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&macro_press &kp LALT>,
+                <&macro_tap &kp TAB>,
+                <&macro_release &kp LALT>;
+                )
+      ZMK_MACRO(kvm_1,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&macro_tap &kp SCROLLLOCK &kp SCROLLLOCK &kp N1>;
+                )
+      ZMK_MACRO(kvm_2,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&macro_tap &kp SCROLLLOCK &kp SCROLLLOCK &kp N2>;
+                )
+      ZMK_MACRO(kvm_3,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&macro_tap &kp SCROLLLOCK &kp SCROLLLOCK &kp N3>;
+                )
 
     };
 
@@ -87,7 +109,7 @@
     &kp EXCL     &kp AT      &kp HASH       &kp DOLLAR      &kp PERCENT        &kp PIPE     &kp AMPERSAND      &kp ASTERISK       &kp BACKSLASH       &trans
     &kp LPAR         &kp RPAR &kp MINUS &kp UNDERSCORE &kp TILDE   &kp ESCAPE &kp SEMICOLON &kp COLON &kp EQUAL &kp PLUS
     &kp LEFT_BRACKET &kp RIGHT_BRACKET  &kp LEFT_BRACE &kp RIGHT_BRACE &kp GRAVE   &kp SINGLE_QUOTE  &kp DOUBLE_QUOTES &kp CARET &trans  &trans
-                                                  &to 4  &kp LA(TAB)       &kp ENTER &to 0
+                                                  &to 4  &alt_tab       &kp ENTER &to 0
     >;
     };
 
@@ -97,7 +119,7 @@
     &trans  &kp N7 &kp N8 &kp N9  &trans      &kp LC(LEFT)  &trans        &trans        &kp LC(RIGHT) &trans
     &trans  &kp N4 &kp N5 &kp N6  &trans      &kp LG(L)     &kp LS(TAB)   &kp LEFT_ALT  &kp TAB       &trans
     &trans  &kp N1 &kp N2 &kp N3  &kp N0      &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &trans
-                                  &trans &trans    &to 5  &to 0
+                                  &trans &trans    &to 0  &to 0
     >;
     };
 
@@ -112,24 +134,13 @@
     };
 
         // Low frequency symbols.
-          symbols_2_layer {
+          system_layer {
     bindings = <
-    &kp IT_CARET &kp IT_UNDER &kp IT_PND &kp IT_EUR &kp IT_HASH              &none &none &none &none &none
-    &kp IT_BKTK &kp IT_TILDE &kp IT_BSLH &kp IT_PIPE &kp IT_AND         &none &none &none &none &none
-    &none &none &none &none &none                                  &none &none &none &none &none
-                             &none &none                           &none &none
+    &trans &trans &trans &trans &trans                             &trans &trans &trans &trans &trans
+    &trans  &kvm_3 &kvm_2 &kvm_1 &trans       &trans &trans &trans &trans &trans
+    &bootloader &trans &trans &trans &trans                                     &trans &trans &trans &trans &bootloader
+                             &trans &trans         &trans &to 0
     >;
     };
-
-        // Used to type regional accents.
-          accent_layer {
-    bindings = <
-    &none &none &none &kp IT_CEGR &none                         &none &none &none &none &none
-    &kp IT_AGRV &kp IT_IGRV &kp IT_OGRV &kp IT_EGRV &kp IT_EACU &none &none &none &none &none
-    &none &none &none &kp IT_UGRV &none                         &none &none &none &none &none
-                       &none &none                         &none &none
-    >;
-    };
-
   };
 };
