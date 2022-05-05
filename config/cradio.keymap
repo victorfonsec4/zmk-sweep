@@ -19,6 +19,85 @@
     combos {
     };
 
+    macros {
+      ZMK_MACRO(spacemacs_1,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&kp LC(G) &kp SPACE &kp N1>;
+                )
+      ZMK_MACRO(spacemacs_2,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&kp LC(G) &kp SPACE &kp N2>;
+                )
+      ZMK_MACRO(spacemacs_3,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&kp LC(G) &kp SPACE &kp N3>;
+                )
+      ZMK_MACRO(spacemacs_4,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&kp LC(G) &kp SPACE &kp N4>;
+                )
+      ZMK_MACRO(spacemacs_5,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&kp LC(G) &kp SPACE &kp N5>;
+                )
+      ZMK_MACRO(spacemacs_tab,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&kp LC(G) &kp SPACE &kp TAB>;
+                )
+      ZMK_MACRO(alt_tab,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&macro_press &kp LALT>,
+                <&macro_tap &kp TAB>,
+                <&macro_release &kp LALT>;
+                )
+      ZMK_MACRO(kvm_1,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&macro_tap &kp SCROLLLOCK &kp SCROLLLOCK &kp N1>;
+                )
+      ZMK_MACRO(kvm_2,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&macro_tap &kp SCROLLLOCK &kp SCROLLLOCK &kp N2>;
+                )
+      ZMK_MACRO(kvm_3,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings = <&macro_tap &kp SCROLLLOCK &kp SCROLLLOCK &kp N3>;
+                )
+    ZMK_MACRO(window_left,
+              wait-ms = <30>;
+              tap-ms = <40>;
+              bindings = <&macro_tap &kp LC(W) &kp LEFT>;
+              )
+
+    ZMK_MACRO(window_right,
+              wait-ms = <30>;
+              tap-ms = <40>;
+              bindings = <&macro_tap &kp LC(W) &kp RIGHT>;
+              )
+
+   ZMK_MACRO(window_up,
+              wait-ms = <30>;
+              tap-ms = <40>;
+              bindings = <&macro_tap &kp LC(W) &kp UP>;
+              )
+
+   ZMK_MACRO(window_down,
+              wait-ms = <30>;
+              tap-ms = <40>;
+              bindings = <&macro_tap &kp LC(W) &kp DOWN>;
+              )
+
+    };
+
     keymap {
             compatible = "zmk,keymap";
 
@@ -26,9 +105,59 @@
           default_layer {
     bindings = <
     &kp Q &kp W &kp E   &kp R   &kp T           &kp Y &kp U  &kp I     &kp O   &kp P
-    &kp A &kp S &kp D   &kp F   &kp G           &kp H &kp J  &kp K     &kp L   &kp BACKSPACE
+    &kp A &kp S &lt 5 D &lt 2 F &kp G           &kp H &lt 5 J  &lt 3 K   &lt 2 L &kp BACKSPACE
     &kp Z &kp X &kp C   &kp V   &kp B           &kp N &kp M  &kp COMMA &kp DOT &kp SLASH
-             &sk LCTRL &sk LALT                      &kp SPACE &sk LSHIFT
+             &sk LCTRL &sl 1                      &kp SPACE &sk LSHIFT
+    >;
+    };
+
+        // Symbols
+          sym_layer {
+    bindings = <
+    &kp EXCL     &kp AT      &kp HASH       &kp DOLLAR      &kp PERCENT        &kp PIPE     &kp AMPERSAND      &kp ASTERISK       &kp BACKSLASH       &trans
+    &kp LPAR         &kp RPAR &kp MINUS &kp UNDERSCORE &kp TILDE   &kp ESCAPE &kp SEMICOLON &kp COLON &kp EQUAL &kp PLUS
+    &kp LEFT_BRACKET &kp RIGHT_BRACKET  &kp LEFT_BRACE &kp RIGHT_BRACE &kp GRAVE   &kp SINGLE_QUOTE  &kp DOUBLE_QUOTES &kp CARET &trans  &trans
+                                                  &to 4  &alt_tab       &kp ENTER &to 0
+    >;
+    };
+
+        // numbers and navigation
+        nums_layer {
+    bindings = <
+    &trans  &kp N7 &kp N8 &kp N9  &trans      &kp LC(LEFT)  &trans        &trans        &kp LC(RIGHT) &trans
+    &trans  &kp N4 &kp N5 &kp N6  &trans      &kp LG(L)     &kp LS(TAB)   &kp LEFT_ALT  &kp TAB       &trans
+    &trans  &kp N1 &kp N2 &kp N3  &kp N0      &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &trans
+                                  &trans &trans    &to 0  &to 0
+    >;
+    };
+
+        // spacemacs layer
+          spacemacs_layer {
+    bindings = <
+    &trans &trans &spacemacs_tab &trans &trans                             &trans &trans &trans &trans &trans
+    &spacemacs_1  &spacemacs_2 &spacemacs_3 &spacemacs_4 &spacemacs_5      &trans &trans &trans &trans &trans
+    &trans &trans &trans &trans &trans                                     &trans &trans &trans &trans &trans
+                             &trans &trans         &trans &to 0
+    >;
+    };
+
+        // controls hardware behaviour
+          system_layer {
+    bindings = <
+    &trans &out OUT_USB &out OUT_BLE &trans &trans                             &trans &trans &trans &trans &trans
+    &trans  &kvm_3 &kvm_2 &kvm_1 &trans       &trans &trans &trans &trans &trans
+    &bootloader &trans &trans &trans &trans                                     &trans &trans &trans &trans &bootloader
+                             &trans &trans         &trans &to 0
+    >;
+    };
+
+    // layer for vim navigation
+        vim_layer {
+    bindings = <
+    &trans &spacemacs_tab &window_up   &trans &trans             &kp N0    &kp PAGE_DOWN &kp PAGE_UP &kp DOLLAR  &trans
+    &trans &window_left   &window_down &window_right &trans      &kp LEFT  &kp DOWN      &kp UP      &kp RIGHT   &trans
+    &trans &trans         &trans       &trans        &trans      &kp LS(B) &kp LS(L)     &kp LS(H)   &kp LS(W)   &trans
+                             &trans &trans         &trans &to 0
     >;
     };
   };
