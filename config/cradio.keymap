@@ -114,7 +114,7 @@
         // Symbols
           sym_layer {
     bindings = <
-    &kp EXCL     &kp AT      &kp HASH       &kp DOLLAR      &kp PERCENT        &kp PIPE     &kp AMPERSAND      &kp ASTERISK       &kp BACKSLASH       &trans
+    &kp EXCL     &kp AT      &kp HASH       &kp DOLLAR      &kp PERCENT        &kp PIPE     &kp AMPERSAND      &kp ASTERISK       &kp BACKSLASH       &kp TAB
     &kp LPAR         &kp RPAR &kp MINUS &kp UNDERSCORE &kp TILDE   &kp ESCAPE &kp SEMICOLON &kp COLON &kp EQUAL &kp PLUS
     &kp LEFT_BRACKET &kp RIGHT_BRACKET  &kp LEFT_BRACE &kp RIGHT_BRACE &kp GRAVE   &kp SINGLE_QUOTE  &kp DOUBLE_QUOTES &kp CARET &trans  &trans
                                                   &to 4  &alt_tab       &kp ENTER &to 0
